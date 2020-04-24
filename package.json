@@ -1,0 +1,26 @@
+{
+  "name": "weekly-challenge-5",
+  "version": "1.0.0",
+  "description": "MongoDB is the best database for modern applications, and MongoDB Stitch and Atlas make it even easier to get started when building for web or mobile.  This is starter code for a website that allows you to search for Airbnb properties.  For more information, see https://mdbwchallengeweek5.splashthat.com.",
+  "main": "data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mongodb-developer/weekly-challenge-5.git"
+  },
+  "dependencies": {
+    "mongodb-stitch-browser-sdk": "4.8.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mongodb-developer/weekly-challenge-5/issues"
+  },
+  "homepage": "https://github.com/mongodb-developer/weekly-challenge-5#readme",
+  "devDependencies": {
+    "dot-env": "0.0.1"
+  }
+}

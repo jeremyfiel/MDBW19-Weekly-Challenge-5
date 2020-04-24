@@ -5,8 +5,8 @@ const aggregatedText = document.getElementById("aggregate-text");
 const lists = document.getElementsByTagName("select");
 
 // Important Stitch Info
-const APP_ID = ""; // Add your Stitch App ID here
-const MDB_SERVICE = "mongodb-atlas"; // Add the name of your Atlas Service ("mongodb-atlas" is the default)
+const APP_ID = process.env.APP_ID  // Add your Stitch App ID here
+const MDB_SERVICE = process.env.MDB_SERVICE // Add the name of your Atlas Service ("mongodb-atlas" is the default)
 const { Stitch } = stitch;
 
 // Set list definitions
@@ -50,21 +50,49 @@ function searchAndBuild() {
   // Construct a query to get the matching properties (limited to the number of results)
   // and then call the following function:
   // refreshTable(matchingData)
+  const query = {
+    "address.country": countryChoice,
+    "bedrooms": { $gte: bedroomsChoice },
+    "bathrooms": { $gte: bathroomsChoice },
+    "property_type": typeChoice, 
+    "price": { $lte: priceChoice }
+  }
+
+  const options = {
+    "limit": resultsLimit
+  }
+
+  coll.find(query, options).toArray().then(tableData => refreshTable(tableData))
 
   // Construct an aggregation pipeline that returns the averagePrice and
   // count of ALL matching properties and then call the following function:
   // updateAggregateText(count, avgPrice, resultsLimit);
-}
 
+  const pipeline = [
+    { "$match": query}, 
+    { "$group": {
+      "_id": null,
+      "averagePrice": { "$avg": "$price" },
+      "count": { "$sum": 1}
+    }}, 
+  ] 
+
+coll.aggregate(pipeline).toArray().then( aggregateData => {
+  console.log(aggregateData)
+  let avgPrice = aggregateData[0].averagePrice
+  let count = aggregateData[0].count
+  updateAggregateText(count, avgPrice, resultsLimit)
+})
+}
 // Update the text showing total results and average price
 function updateAggregateText(count, avgPrice, limit){
   let resultCount = Math.min(limit, count);
   avgPrice = parseInt(avgPrice);
 
   if(resultCount > 0){
-    aggregatedText.innerHTML = "Returning " + resultCount + " out of " + count + " results.  Average price is $" + avgPrice + ".";
+    aggregatedText.innerHTML = `Returning ${resultCount} out of ${count} results.  Average price is $${avgPrice}.`  ;
   } else {
-    aggregatedText.innerHTML = "No Results Found";
+    aggregatedText.innerHTML = `No Results Found`;
   }
 }
 

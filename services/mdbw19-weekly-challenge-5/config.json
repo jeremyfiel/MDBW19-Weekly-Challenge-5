@@ -1,0 +1,11 @@
+{
+    "id": "5e7bffab81819bb0b0390a1e",
+    "name": "mdbw19-weekly-challenge-5",
+    "type": "mongodb-atlas",
+    "config": {
+        "clusterName": "Weekly-Challenge-5",
+        "readPreference": "primary",
+        "wireProtocolEnabled": false
+    },
+    "version": 1
+}
