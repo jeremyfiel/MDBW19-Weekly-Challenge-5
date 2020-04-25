@@ -1,0 +1,19 @@
+{
+    "database": "blog",
+    "collection": "visitors",
+    "roles": [
+        {
+            "name": "default",
+            "apply_when": {},
+            "fields": {
+                "email": {},
+                "name": {}
+            },
+            "write": true,
+            "insert": true,
+            "delete": true,
+            "additional_fields": {}
+        }
+    ],
+    "schema": {}
+}
