@@ -6,7 +6,7 @@ const lists = document.getElementsByTagName("select");
 
 // Important Stitch Info
 const APP_ID = "weekly-challenge-5-dpjtn" // Add your Stitch App ID here
-const MDB_SERVICE = "mmdbw19-weekly-challenge-5" // Add the name of your Atlas Service ("mongodb-atlas" is the default)
+const MDB_SERVICE = "mdbw19-weekly-challenge-5" // Add the name of your Atlas Service ("mongodb-atlas" is the default)
 const { Stitch } = stitch;
 
 // Set list definitions
