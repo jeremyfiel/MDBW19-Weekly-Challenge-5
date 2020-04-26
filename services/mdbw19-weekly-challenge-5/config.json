@@ -1,5 +1,5 @@
 {
-    "name": "weekly-challenge-5",
+    "name": "mdbw19-weekly-challenge-5",
     "type": "mongodb-atlas",
     "config": {
         "readPreference": "primary",
