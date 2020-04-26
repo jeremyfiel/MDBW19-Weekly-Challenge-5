@@ -1,1 +1,9 @@
-[]
+[
+    {
+      "path": "/hosting/files",
+      "attrs": [{
+        "name": "index",
+        "value": ".html"
+      }]
+    }
+  ]
