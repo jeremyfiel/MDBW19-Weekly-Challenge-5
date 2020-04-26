@@ -3,7 +3,11 @@
       "path": "/hosting/files",
       "attrs": [{
         "name": "index",
-        "value": ".html"
-      }]
+        "value": "html"
+        },
+        {
+        "name": "data",
+        "value": "js"
+        }]
     }
   ]
